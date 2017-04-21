@@ -11,5 +11,6 @@
 - [Attention with Intention for a Neural Network Conversation Model](https://arxiv.org/pdf/1510.08565.pdf)
 
 ### TODOs
-* anti-language model to suppress generic response
+* Anti-language model to suppress generic response
 * MMI-loss as objective function
+* Reinforcement Learning?
