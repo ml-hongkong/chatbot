@@ -1,4 +1,4 @@
-# TF Seq2Seq Chatbot
+# Tensorflow Seq2Seq Chatbot
 
 ### Requirements
 * tensorflow r1.1
