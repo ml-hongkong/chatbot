@@ -155,17 +155,9 @@ class DialogueModel(object):
     return rnn_output, sample_id, dec_state
 
   def _infer_helper(self):
-    helper = seq2seq.GreedyEmbeddingHelper(self.embedding,
+    return seq2seq.GreedyEmbeddingHelper(self.embedding,
                                            start_tokens=tf.fill([self._batch_size], self._start_token_id),
                                            end_token=tf.constant(self._end_token_id, dtype=tf.int32))
-    def sample_fn(time, outputs, state):
-      sample_ids = tf.multinomial(tf.exp(outputs / self._temperature), 1)
-      sample_ids = tf.cast(tf.reshape(sample_ids, [self._batch_size * 1]), dtype=tf.int32)
-      return sample_ids
-
-    return seq2seq.CustomHelper(initialize_fn=helper.initialize,
-                                sample_fn=sample_fn,
-                                next_inputs_fn=helper.next_inputs)
 
   def _train_helper(self):
     start_ids = tf.fill([self._batch_size, 1], self._start_token_id)
