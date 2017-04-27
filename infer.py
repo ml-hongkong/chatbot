@@ -15,6 +15,7 @@ pp = pprint.PrettyPrinter()
 flags = tf.app.flags
 flags.DEFINE_string("checkpoint", "checkpoint", "Directory name to save the checkpoints [checkpoint]")
 flags.DEFINE_string("logdir", "log", "Log directory [log]")
+flags.DEFINE_float("temperature", 0.5, "temperature")
 FLAGS = flags.FLAGS
 
 def main(_):
@@ -38,7 +39,7 @@ def main(_):
                         vocab_size=vocab_size, pad_token_id=0, unk_token_id=UNK_ID,
                         emb_size=emb_size, memory_size=config["memory_size"],
                         keep_prob=config["keep_prob"], learning_rate=config["learning_rate"],
-                        grad_clip=config["grad_clip"], infer=True)
+                        grad_clip=config["grad_clip"], temperature=config["temperature"], infer=True)
 
   init = tf.global_variables_initializer()
   saver = tf.train.Saver()

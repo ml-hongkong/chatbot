@@ -89,11 +89,12 @@ def main(_):
           res = model.step(sess, x, y, input_lengths, output_lengths, state, summaries)
           summary_writer.add_summary(res["summary_out"], current_step)
           loss = res["loss"]
+          perplexity = np.exp(loss)
           count += 1
-          print("{0}/{1}({2}), loss {3}".format(current_step + 1,
-                                                FLAGS.num_epochs * data_loader.num_batches,
-                                                e,
-                                                loss))
+          print("{0}/{1}({2}), perplexity {3}".format(current_step + 1,
+                                                      FLAGS.num_epochs * data_loader.num_batches,
+                                                      e,
+                                                      perplexity))
         state = res["final_state"]
 
         if (current_step + 1) % 2000 == 0:
