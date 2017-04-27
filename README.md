@@ -10,6 +10,10 @@
 - [A Hierarchical Recurrent Encoder-Decoder for Generative Context-Aware Query Suggestion](https://arxiv.org/pdf/1507.02221.pdf)
 - [Attention with Intention for a Neural Network Conversation Model](https://arxiv.org/pdf/1510.08565.pdf)
 
+### Result
+This the result trained with 1400 movies and tv show subtitles around  1.4m sentences.
+![Demo](/meetup_demo.png)
+
 ### TODOs
 * Anti-language model to suppress generic response
 * MMI-loss as objective function
